@@ -1,1 +1,1 @@
-# HireSphere-
+HireSphere — Job Application Platform
