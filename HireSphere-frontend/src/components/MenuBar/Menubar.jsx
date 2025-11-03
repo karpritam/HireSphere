@@ -1,0 +1,99 @@
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { assets } from "../../assets/assets";
+import { Bell, Settings, X } from "lucide-react";
+
+const Menubar = () => {
+	const location = useLocation();
+	const [menuOpen, setMenuOpen] = useState(false);
+
+	// Helper for active link highlighting
+	const isActive = (path) =>
+		location.pathname === path
+			? "text-yellow-400 font-semibold relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-yellow-400 after:shadow-[0_0_10px_#facc15] after:rounded-full transition-all duration-300"
+			: "hover:text-yellow-300 hover:after:content-[''] hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-yellow-300 hover:after:rounded-full transition-all duration-300";
+
+	return (
+		<nav className="flex items-center justify-between px-6 md:px-10 py-4 bg-gray-900 text-gray-300 shadow-lg border-b border-gray-800 relative">
+			{/* Left: Logo and Brand Name */}
+			<div className="flex items-center gap-3">
+				<Link to="/homePage" className="flex items-center gap-2 group">
+					<img
+						src={assets.jobLogo}
+						alt="logo"
+						className="h-10 w-10 transition-transform group-hover:rotate-6 group-hover:scale-110"
+					/>
+					<h1 className="text-xl font-semibold group-hover:text-yellow-400 transition-all">
+						HireSphere
+					</h1>
+				</Link>
+			</div>
+
+			{/* Center: Navigation Links (Desktop Only) */}
+			<ul className="hidden md:flex gap-10 text-md font-medium relative">
+				<li>
+					<Link
+						to="/findJobs"
+						className={`relative pb-1 ${isActive("/findJobs")}`}>
+						Find Jobs
+					</Link>
+				</li>
+				<li>
+					<Link
+						to="/findTalent"
+						className={`relative pb-1 ${isActive("/findTalent")}`}>
+						Find Talent
+					</Link>
+				</li>
+				<li>
+					<Link
+						to="/uploadJobs"
+						className={`relative pb-1 ${isActive("/uploadJobs")}`}>
+						Upload Jobs
+					</Link>
+				</li>
+				<li>
+					<Link to="/about" className={`relative pb-1 ${isActive("/about")}`}>
+						About Us
+					</Link>
+				</li>
+			</ul>
+
+			{/* Right: Profile + Icons */}
+			<div className="flex items-center gap-4 md:gap-6">
+				{/* User Profile */}
+				<div className="flex items-center gap-2 cursor-pointer hover:text-yellow-400 transition-all">
+					<span className="font-semibold hidden sm:inline">PSK</span>
+					<img
+						src={assets.profile}
+						alt="Profile"
+						className="w-8 h-8 rounded-full border-2 border-gray-700 hover:border-yellow-400 transition-all"
+					/>
+				</div>
+
+				{/* Settings Icon */}
+				<Settings className="bg-gray-800 p-1.5 rounded-full h-8 w-8 cursor-pointer hover:text-yellow-400 hover:bg-gray-700 transition-all shadow-sm hover:shadow-[0_0_8px_#facc15]" />
+
+				{/* Notification Bell */}
+				<div className="relative cursor-pointer">
+					<Bell className="bg-gray-800 p-1.5 rounded-full h-8 w-8 hover:text-yellow-400 hover:bg-gray-700 transition-all shadow-sm hover:shadow-[0_0_8px_#facc15]" />
+					<span className="absolute top-1 right-1 flex h-2.5 w-2.5">
+						<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+						<span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500"></span>
+					</span>
+				</div>
+
+				{/* Hamburger Menu (Mobile) */}
+				<button className="md:hidden focus:outline-none">
+					<img
+						src={assets.menuBar}
+						alt="menuBar"
+						className="h-8 w-8 hover:scale-110 transition-transform"
+					/>
+				</button>
+			</div>
+		</nav>
+	);
+};
+
+export default Menubar;
