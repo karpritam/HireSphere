@@ -84,14 +84,53 @@ const Menubar = () => {
 				</div>
 
 				{/* Hamburger Menu (Mobile) */}
-				<button className="md:hidden focus:outline-none">
-					<img
-						src={assets.menuBar}
-						alt="menuBar"
-						className="h-8 w-8 hover:scale-110 transition-transform"
-					/>
+				<button
+					className="md:hidden focus:outline-none"
+					onClick={() => setMenuOpen(!menuOpen)}>
+					{menuOpen ? (
+						<img
+							src={assets.crossIcon}
+							alt="cross"
+							className="h-8 w-8 hover:scale-110 transition-transform"
+						/>
+					) : (
+						<img
+							src={assets.menuBar}
+							alt="menuBar"
+							className="h-8 w-8 hover:scale-110 transition-transform"
+						/>
+					)}
 				</button>
 			</div>
+			{/* Mobile Dropdown Menu */}
+			{menuOpen && (
+				<div className="absolute top-full left-0 w-full bg-gray-900 border-gray-800 flex flex-col items-center py-4 md:hidden animate-slideDown z-50">
+					<Link
+						to="/findJobs"
+						className={`py-2 text-lg ${isActive("/findJobs")}`}
+						onClick={() => setMenuOpen(false)}>
+						Find Jobs
+					</Link>
+					<Link
+						to="/findTalent"
+						className={`py-2 text-lg ${isActive("/findTalent")}`}
+						onClick={() => setMenuOpen(false)}>
+						Find Talent
+					</Link>
+					<Link
+						to="/uploadJobs"
+						className={`py-2 text-lg ${isActive("/uploadJobs")}`}
+						onClick={() => setMenuOpen(false)}>
+						Upload Jobs
+					</Link>
+					<Link
+						to="/about"
+						className={`py-2 text-lg ${isActive("/about")}`}
+						onClick={() => setMenuOpen(false)}>
+						About Us 
+					</Link>
+				</div>
+			)}
 		</nav>
 	);
 };
