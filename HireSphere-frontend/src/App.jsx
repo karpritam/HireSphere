@@ -10,10 +10,11 @@ import About from "./components/Pages/About/About";
 const App = () => {
 	const location = useLocation();
 	return (
-		<div className="min-h-screen bg-gray-950 text-white">
+		<div className="min-h-screen bg-white text-gray-900">
 			<Menubar />
-			<main className="pt-20 px-6 md:px-12">
+			<main className="">
 				<Routes>
+					<Route path="/" element={<Homepage />} />        {/* Default page */}
 					<Route path="/homePage" element={<Homepage />} />
 					<Route path="/findJobs" element={<FindJobs />} />
 					<Route path="/findTalent" element={<FindTalent />} />
