@@ -15,7 +15,7 @@ const Menubar = () => {
 			: "text-gray-700 hover:text-orange-500 relative hover:after:content-[''] hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-orange-400 hover:after:rounded-full transition-all duration-300";
 
 	return (
-		<nav className="flex items-center justify-between px-6 md:px-10 py-4 bg-white text-gray-900 shadow-lg border-b border-gray-500 relative">
+		<nav className="flex items-center justify-between px-6 md:px-10 py-4 bg-white text-gray-900 shadow-lg border-b border-orange-500 relative">
 			{/* Left: Logo and Brand Name */}
 			<div className="flex items-center gap-3">
 				<Link to="/homePage" className="flex items-center gap-2 group">
@@ -53,8 +53,8 @@ const Menubar = () => {
 					</Link>
 				</li>
 				<li>
-					<Link to="/about" className={isActive("/about")}>
-						About Us
+					<Link to="/applications" className={isActive("/applications")}>
+						View Applications
 					</Link>
 				</li>
 			</ul>
@@ -91,11 +91,25 @@ const Menubar = () => {
 				</div>
 
 				{/* Settings Icon */}
-				<Settings className="p-1.5 rounded-full h-8 w-8 cursor-pointer text-gray-800 hover:text-orange-600 hover:bg-gray-100 transition-transform group-hover:rotate-6 group-hover:scale-110 shadow-[0_0_10px_#FF6C0C]" />
+				<div className="relative group inline-block">
+					<Settings
+						className="p-1.5 rounded-full h-8 w-8 cursor-pointer text-gray-800 transition-all duration-300
+						group-hover:text-orange-600 group-hover:bg-gray-100
+						group-hover:rotate-12 group-hover:scale-110
+						shadow-[0_0_10px_#FF6C0C] group-hover:shadow-[0_0_20px_#FF6C0C]"
+					/>
+				</div>
 
 				{/* Notification Bell */}
-				<div className="relative cursor-pointer">
-					<Bell className="p-1.5 rounded-full h-8 w-8 text-gray-800 hover:text-orange-600 hover:bg-gray-100 transition-transform group-hover:rotate-6 group-hover:scale-110 shadow-[0_0_10px_#FF6C0C]" />
+				<div className="relative cursor-pointer group">
+					<Bell
+						className="p-1.5 rounded-full h-8 w-8 text-gray-800 transition-all duration-300
+						group-hover:text-orange-600 group-hover:bg-gray-100
+						group-hover:rotate-12 group-hover:scale-110
+						shadow-[0_0_10px_#FF6C0C] group-hover:shadow-[0_0_20px_#FF6C0C]"
+					/>
+
+					{/* Notification Ping */}
 					<span className="absolute top-1 right-1 flex h-2.5 w-2.5">
 						<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
 						<span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-600"></span>
@@ -150,10 +164,10 @@ const Menubar = () => {
 						Upload Jobs
 					</Link>
 					<Link
-						to="/about"
-						className={`py-2 text-lg ${isActive("/about")}`}
+						to="/applications"
+						className={`py-2 text-lg ${isActive("/applications")}`}
 						onClick={() => setMenuOpen(false)}>
-						About Us
+						View Applications
 					</Link>
 				</div>
 			)}

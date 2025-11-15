@@ -5,7 +5,7 @@ import Homepage from "./components/Pages/HomePage/Homepage";
 import FindJobs from "./components/Pages/FindJobs/FindJobs";
 import FindTalent from "./components/Pages/FindTalend/FindTalent";
 import UploadJobs from "./components/Pages/UploadJobs/UploadJobs";
-import About from "./components/Pages/About/About";
+import ViewApplications from "./components/Pages/Applications/ViewApplications";
 
 const App = () => {
 	const location = useLocation();
@@ -14,12 +14,12 @@ const App = () => {
 			<Menubar />
 			<main className="">
 				<Routes>
-					<Route path="/" element={<Homepage />} />        {/* Default page */}
+					<Route path="/" element={<Homepage />} /> {/* Default page */}
 					<Route path="/homePage" element={<Homepage />} />
 					<Route path="/findJobs" element={<FindJobs />} />
 					<Route path="/findTalent" element={<FindTalent />} />
 					<Route path="/uploadJobs" element={<UploadJobs />} />
-					<Route path="/about" element={<About />} />
+					<Route path="/applications" element={<ViewApplications />} />
 				</Routes>
 			</main>
 		</div>

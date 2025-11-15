@@ -59,7 +59,7 @@ const Homepage = () => {
 							className="p-2 rounded-lg bg-white/10 border border-gray-600 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
 						/>
 					</div>
-
+					{/*todo-> when click seach icon go to the find job section */}
 					<button className="flex mt-0 sm:mt-4 items-center justify-center w-full h-14 sm:h-12 bg-orange-400 rounded-xl hover:bg-orange-500 active:scale-95 transition-transform cursor-pointer shadow-md">
 						<p className="block sm:hidden ">Search Job</p>
 						<IconSearch className="hidden sm:block w-8 md:h-8 text-gray-900 " />
@@ -68,7 +68,7 @@ const Homepage = () => {
 			</div>
 
 			{/* Right Section */}
-			<div className="relative flex items-center justify-center w-full md:w-[55%] mt-10 md:mt-0 overflow-visible">
+			<div className="relative flex items-center justify-center w-full md:w-[55%] mt-10 md:mb-0 overflow-visible">
 				<div className="relative w-[22rem] sm:w-[26rem] md:w-[34rem] lg:w-[40rem]">
 					<img
 						src={assets.avatarImg2}
