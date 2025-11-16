@@ -14,8 +14,9 @@ const Homepage = () => {
 				</h1>
 
 				<p className="text-base sm:text-lg text-gray-600 max-w-md mx-auto md:mx-0">
-					Good life begins with a good company. Start exploring thousands of
-					jobs all in one place.
+					{/* Good life begins with a good company. Start exploring thousands of
+					jobs all in one place. */}
+					Search for job opportunities from all corners of web.
 				</p>
 
 				{/* Search Section */}

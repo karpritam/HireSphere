@@ -43,18 +43,13 @@ const Menubar = () => {
 					</Link>
 				</li>
 				<li>
-					<Link to="/findTalent" className={isActive("/findTalent")}>
-						Find Talent
-					</Link>
-				</li>
-				<li>
 					<Link to="/uploadJobs" className={isActive("/uploadJobs")}>
 						Upload Jobs
 					</Link>
 				</li>
 				<li>
-					<Link to="/applications" className={isActive("/applications")}>
-						View Applications
+					<Link to="/applicants" className={isActive("/applicants")}>
+						View Applicants
 					</Link>
 				</li>
 			</ul>
@@ -152,22 +147,16 @@ const Menubar = () => {
 						Find Jobs
 					</Link>
 					<Link
-						to="/findTalent"
-						className={`py-2 text-lg ${isActive("/findTalent")}`}
-						onClick={() => setMenuOpen(false)}>
-						Find Talent
-					</Link>
-					<Link
 						to="/uploadJobs"
 						className={`py-2 text-lg ${isActive("/uploadJobs")}`}
 						onClick={() => setMenuOpen(false)}>
 						Upload Jobs
 					</Link>
 					<Link
-						to="/applications"
-						className={`py-2 text-lg ${isActive("/applications")}`}
+						to="/applicants"
+						className={`py-2 text-lg ${isActive("/applicants")}`}
 						onClick={() => setMenuOpen(false)}>
-						View Applications
+						View Applicants
 					</Link>
 				</div>
 			)}
