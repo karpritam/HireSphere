@@ -28,6 +28,7 @@ public class JobEntity {
     private String salaryRange;            // e.g. "3–5 LPA"
     private String jobType;                // Full-time, Part-time, Remote
     private String experienceLevel;        // Fresher, Mid-level, Senior
+    private String techStack;
 
     @Column(columnDefinition = "TEXT")
     private String description;

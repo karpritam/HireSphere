@@ -10,5 +10,6 @@ public class JobRequest {
     private String salaryRange;
     private String jobType;
     private String experienceLevel;
+    private String techStack;
     private String description;
 }

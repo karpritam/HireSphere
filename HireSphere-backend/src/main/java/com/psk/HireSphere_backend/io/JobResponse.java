@@ -13,6 +13,7 @@ public class JobResponse {
     private String salaryRange;
     private String jobType;
     private String experienceLevel;
+    private String techStack;
     private String description;
     private String createdAt;
     private String updatedAt;

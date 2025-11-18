@@ -25,6 +25,7 @@ public class JobServiceImpl implements JobService {
                 .salaryRange(request.getSalaryRange())
                 .jobType(request.getJobType())
                 .experienceLevel(request.getExperienceLevel())
+                .techStack(request.getTechStack())
                 .description(request.getDescription())
                 .build();
          JobEntity saved=jobRepository.save(job);
@@ -40,6 +41,7 @@ public class JobServiceImpl implements JobService {
                 .salaryRange(saved.getSalaryRange())
                 .jobType(saved.getJobType())
                 .experienceLevel(saved.getExperienceLevel())
+                .techStack(saved.getTechStack())
                 .description(saved.getDescription())
                 .createdAt(saved.getCreatedAt().toString())
                 .updatedAt(saved.getUpdatedAt().toString())
@@ -68,6 +70,7 @@ public class JobServiceImpl implements JobService {
         job.setSalaryRange(request.getSalaryRange());
         job.setJobType(request.getJobType());
         job.setExperienceLevel(request.getExperienceLevel());
+        job.setTechStack(request.getTechStack());
         job.setDescription(request.getDescription());
 
         JobEntity updated=jobRepository.save(job);
