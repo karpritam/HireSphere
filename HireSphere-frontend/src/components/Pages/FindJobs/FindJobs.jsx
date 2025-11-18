@@ -1,53 +1,117 @@
-import React from "react";
+import React, { useState } from "react";
 import { IconSearch } from "@tabler/icons-react";
 
-const FindJobs = () => {
+const FindJobs = ({ jobs = [] }) => {
+	const [filters, setFilters] = useState({
+		type: "",
+		title: "",
+		location: "",
+	});
+
+	const handleChange = (e) => {
+		setFilters({ ...filters, [e.target.name]: e.target.value });
+	};
+
+	const filteredJobs = Array.isArray(jobs)
+		? jobs.filter((job) => {
+				const matchesType =
+					filters.type === "" ||
+					job.jobType?.toLowerCase().includes(filters.type.toLowerCase());
+
+				const matchesTitle =
+					filters.title === "" ||
+					job.title?.toLowerCase().includes(filters.title.toLowerCase());
+
+				const matchesLocation =
+					filters.location === "" ||
+					job.location?.toLowerCase().includes(filters.location.toLowerCase());
+
+				return matchesType && matchesTitle && matchesLocation;
+		  })
+		: [];
+
 	return (
-		<div>
+		<div className="w-full px-6 py-6">
 			<div className="flex items-center justify-center">
-				{/* Search Section */}
-				<div className="flex flex-col  sm:flex-row items-center gap-3 bg-gray/20 backdrop-blur-md p-4 rounded-2xl shadow-lg mt-4 border border-gray/10 required">
-					<div className="flex flex-col w-full sm:w-[40%]">
-						<label className="text-sm text-gray-900 mb-1 flex left-0">
+				<div className="flex flex-col sm:flex-row items-center gap-3 bg-white shadow-lg p-4 rounded-xl border w-full max-w-5xl">
+					{/* Job Type */}
+					<div className="flex flex-col w-full sm:w-[30%]">
+						<label className="text-sm font-medium text-gray-800 mb-1">
 							Job Type
 						</label>
-
-						<select className="p-2 rounded-lg bg-white/10 border border-gray-600 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all">
-							<option className="rounded-lg border border-gray-600">
-								Internship
-							</option>
-							<option>Full Time</option>
-							<option>Part Time</option>
+						<select
+							name="type"
+							value={filters.type}
+							onChange={handleChange}
+							className="p-2 rounded-lg border border-orange-400">
+							<option value="">Any</option>
+							<option>Internship</option>
+							<option>Full-time</option>
+							<option>Part-time</option>
 						</select>
 					</div>
 
-					<div className="flex flex-col w-full sm:w-[40%]">
-						<label className="text-sm text-gray-900 mb-1 flex left-0">
+					{/* Job Title */}
+					<div className="flex flex-col w-full sm:w-[30%]">
+						<label className="text-sm font-medium text-gray-800 mb-1">
 							Job Title
 						</label>
 						<input
+							name="title"
+							value={filters.title}
+							onChange={handleChange}
 							type="text"
 							placeholder="Software Engineer"
-							className="p-2  rounded-lg bg-white/10 border border-gray-600 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+							className="p-2 rounded-lg border border-orange-400"
 						/>
 					</div>
 
-					<div className="flex flex-col w-full sm:w-[40%]">
-						<label className="text-sm text-gray-900 mb-1 flex left-0">
-							Job Location
+					{/* Job Location */}
+					<div className="flex flex-col w-full sm:w-[30%]">
+						<label className="text-sm font-medium text-gray-800 mb-1">
+							Location
 						</label>
 						<input
+							name="location"
+							value={filters.location}
+							onChange={handleChange}
 							type="text"
 							placeholder="Kolkata"
-							className="p-2 rounded-lg bg-white/10 border border-gray-600 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+							className="p-2 rounded-lg border border-orange-400"
 						/>
 					</div>
-					{/*todo-> when click seach icon go to the find job section */}
-					<button className="flex mt-0 sm:mt-4 items-center justify-center w-full h-14 sm:h-12 bg-orange-400 rounded-xl hover:bg-orange-500 active:scale-95 transition-transform cursor-pointer shadow-md">
-						<p className="block sm:hidden ">Search Job</p>
-						<IconSearch className="hidden sm:block w-8 md:h-8 text-gray-900 " />
+
+					{/* Search Button */}
+					<button className="flex items-center justify-center w-full sm:w-auto mt-2 sm:mt-6 bg-orange-400 p-3 rounded-xl hover:bg-orange-500">
+						<IconSearch className="text-black" size={22} />
 					</button>
 				</div>
+			</div>
+
+			{/* Results */}
+			<div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				{filteredJobs.length > 0 ? (
+					filteredJobs.map((job, index) => (
+						<div
+							key={index}
+							className="p-4 bg-gray-300 rounded-xl shadow-md border">
+							<h2 className="text-lg font-bold">{job.title}</h2>
+							<h3>{job.company}</h3>
+							<p>{job.location}</p>
+							<p className="text-orange-500">💼 {job.jobType}</p>
+							<p>INR {job.salaryRange} LPA</p>
+							<p>{job.experienceLevel}y</p>
+							<p>skills: {job.techStack}</p>
+							<div>
+								<h2 className="flex items-center justify-center text-lg p-1 cursor-pointer bg-orange-400 text-gray-900 hover:bg-orange-500 rounded-lg">
+									Apply Now
+								</h2>
+							</div>
+						</div>
+					))
+				) : (
+					<p className=" text-orange-500 text-center text-lg">No Jobs Found</p>
+				)}
 			</div>
 		</div>
 	);

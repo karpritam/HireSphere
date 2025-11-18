@@ -7,6 +7,8 @@ import UploadJobs from "./components/Pages/UploadJobs/UploadJobs";
 import ViewApplications from "./components/Pages/Applications/ViewApplications";
 import ManageJobs from "./components/Pages/ManageJobs/ManageJobs";
 import { Toaster } from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
+import FindJobsPage from "./components/Pages/FindJobs/FindJobPage";
 
 const App = () => {
 	const location = useLocation();
@@ -14,12 +16,13 @@ const App = () => {
 		<div className="min-h-screen bg-white text-gray-900">
 			<div className="">
 				<Menubar />
-				<Toaster position="top-center" reverseOrder={true} />
+				{/* <Toaster position="top-center" reverseOrder={true} /> */}
+				<ToastContainer position="top-center" reverseOrder={true} />
 				<main className="">
 					<Routes>
 						<Route path="/" element={<Homepage />} /> {/* Default page */}
 						<Route path="/homePage" element={<Homepage />} />
-						<Route path="/findJobs" element={<FindJobs />} />
+						<Route path="/findJobs" element={<FindJobsPage />} />
 						<Route path="/uploadJobs" element={<UploadJobs />} />
 						<Route path="/manageJobs" element={<ManageJobs />} />
 						<Route path="/applicants" element={<ViewApplications />} />

@@ -11,12 +11,12 @@ export const deleteJob = async (jobId) => {
 };
 
 //GetMapping
-export const fetchJobs = async () => {
+export const getAllJobs = async () => {
 	return await axios.get("http://localhost:8080/api/v1.0/jobs");
 };
 
 //GetMapping by Id
-export const fetchJobById = async (jobId) => {
+export const getJobById = async (jobId) => {
 	return await axios.get(`http://localhost:8080/api/v1.0/jobs/${jobId}`);
 };
 
