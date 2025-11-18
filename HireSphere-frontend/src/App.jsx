@@ -5,21 +5,27 @@ import Homepage from "./components/Pages/HomePage/Homepage";
 import FindJobs from "./components/Pages/FindJobs/FindJobs";
 import UploadJobs from "./components/Pages/UploadJobs/UploadJobs";
 import ViewApplications from "./components/Pages/Applications/ViewApplications";
+import ManageJobs from "./components/Pages/ManageJobs/ManageJobs";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
 	const location = useLocation();
 	return (
 		<div className="min-h-screen bg-white text-gray-900">
-			<Menubar />
-			<main className="">
-				<Routes>
-					<Route path="/" element={<Homepage />} /> {/* Default page */}
-					<Route path="/homePage" element={<Homepage />} />
-					<Route path="/findJobs" element={<FindJobs />} />
-					<Route path="/uploadJobs" element={<UploadJobs />} />
-					<Route path="/applicants" element={<ViewApplications />} />
-				</Routes>
-			</main>
+			<div className="">
+				<Menubar />
+				<Toaster position="top-center" reverseOrder={true} />
+				<main className="">
+					<Routes>
+						<Route path="/" element={<Homepage />} /> {/* Default page */}
+						<Route path="/homePage" element={<Homepage />} />
+						<Route path="/findJobs" element={<FindJobs />} />
+						<Route path="/uploadJobs" element={<UploadJobs />} />
+						<Route path="/manageJobs" element={<ManageJobs />} />
+						<Route path="/applicants" element={<ViewApplications />} />
+					</Routes>
+				</main>
+			</div>
 		</div>
 	);
 };

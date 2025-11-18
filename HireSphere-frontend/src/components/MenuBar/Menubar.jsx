@@ -48,6 +48,11 @@ const Menubar = () => {
 					</Link>
 				</li>
 				<li>
+					<Link to="/manageJobs" className={isActive("/manageJobs")}>
+						Manage Jobs
+					</Link>
+				</li>
+				<li>
 					<Link to="/applicants" className={isActive("/applicants")}>
 						View Applicants
 					</Link>
@@ -151,6 +156,12 @@ const Menubar = () => {
 						className={`py-2 text-lg ${isActive("/uploadJobs")}`}
 						onClick={() => setMenuOpen(false)}>
 						Upload Jobs
+					</Link>
+					<Link
+						to="/manageJobs"
+						className={`py-2 text-lg ${isActive("/manageJobs")}`}
+						onClick={() => setMenuOpen(false)}>
+						Manage Jobs
 					</Link>
 					<Link
 						to="/applicants"
