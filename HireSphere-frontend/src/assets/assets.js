@@ -9,6 +9,7 @@ import google from "./google.avif";
 import avatarImg from "./avatarImg.png";
 import avatarImg2 from "./avatarImg2.png";
 import uploadAvatar from "./uploadAvatar.png";
+import manageJobIcon from "./management.png";
 
 export const assets = {
 	jobLogo,
@@ -22,4 +23,5 @@ export const assets = {
 	avatarImg,
 	avatarImg2,
 	uploadAvatar,
+	manageJobIcon,
 };

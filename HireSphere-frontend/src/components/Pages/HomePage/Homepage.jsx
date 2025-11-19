@@ -6,7 +6,7 @@ const Homepage = () => {
 	return (
 		<div className="flex flex-col-reverse  md:flex-row items-center justify-center px-6 sm:px-10 md:px-16 bg-white text-gray-900 overflow-visible max-w-full">
 			{/* Left Section */}
-			<div className="flex flex-col w-full md:w-[55%] gap-6 text-center md:text-left">
+			<div className="flex flex-col w-full md:w-[50%] gap-6 text-center md:text-left">
 				<h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
 					Find Your{" "}
 					<span className="text-orange-400 drop-shadow-md">Dream Job</span> with

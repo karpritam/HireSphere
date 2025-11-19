@@ -9,6 +9,7 @@ import ManageJobs from "./components/Pages/ManageJobs/ManageJobs";
 import { Toaster } from "react-hot-toast";
 import { ToastContainer } from "react-toastify";
 import FindJobsPage from "./components/Pages/FindJobs/FindJobPage";
+import ManageJobPage from "./components/Pages/ManageJobs/ManageJobPage";
 
 const App = () => {
 	const location = useLocation();
@@ -24,7 +25,7 @@ const App = () => {
 						<Route path="/homePage" element={<Homepage />} />
 						<Route path="/findJobs" element={<FindJobsPage />} />
 						<Route path="/uploadJobs" element={<UploadJobs />} />
-						<Route path="/manageJobs" element={<ManageJobs />} />
+						<Route path="/manageJobs" element={<ManageJobPage />} />
 						<Route path="/applicants" element={<ViewApplications />} />
 					</Routes>
 				</main>

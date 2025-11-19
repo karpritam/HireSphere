@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import FindJobs from "./FindJobs";
 import { getAllJobs } from "../../../Service/JobService";
+import ManageJobs from "./ManageJobs";
 
-const FindJobsPage = () => {
+const ManageJobPage = () => {
 	const [jobs, setJobs] = useState([]);
 
 	useEffect(() => {
@@ -20,9 +20,9 @@ const FindJobsPage = () => {
 
 	return (
 		<div>
-			<FindJobs jobs={jobs} />
+			<ManageJobs jobs={jobs} />
 		</div>
 	);
 };
 
-export default FindJobsPage;
+export default ManageJobPage;

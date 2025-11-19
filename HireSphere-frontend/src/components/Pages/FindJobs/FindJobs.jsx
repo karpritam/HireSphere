@@ -83,35 +83,80 @@ const FindJobs = ({ jobs = [] }) => {
 
 					{/* Search Button */}
 					<button className="flex items-center justify-center w-full sm:w-auto mt-2 sm:mt-6 bg-orange-400 p-3 rounded-xl hover:bg-orange-500">
-						<IconSearch className="text-black" size={22} />
+						<p className="block sm:hidden ">Search Job</p>
+						<IconSearch className="hidden sm:block text-black" size={22} />
 					</button>
 				</div>
 			</div>
 
 			{/* Results */}
-			<div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-				{filteredJobs.length > 0 ? (
-					filteredJobs.map((job, index) => (
-						<div
-							key={index}
-							className="p-4 bg-gray-300 rounded-xl shadow-md border">
-							<h2 className="text-lg font-bold">{job.title}</h2>
-							<h3>{job.company}</h3>
-							<p>{job.location}</p>
-							<p className="text-orange-500">💼 {job.jobType}</p>
-							<p>INR {job.salaryRange} LPA</p>
-							<p>{job.experienceLevel}y</p>
-							<p>skills: {job.techStack}</p>
-							<div>
-								<h2 className="flex items-center justify-center text-lg p-1 cursor-pointer bg-orange-400 text-gray-900 hover:bg-orange-500 rounded-lg">
-									Apply Now
-								</h2>
+			<div className="flex w-[100%] items-center justify-evenly overflow-auto">
+				<div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+					{filteredJobs.length > 0 ? (
+						filteredJobs.map((job, index) => (
+							<div
+								key={index}
+								className="p-4 bg-orange-100 rounded-xl shadow-md border">
+								{/* Card Header */}
+								<div className="flex items-center gap-3">
+									<div className="w-12 h-12 bg-orange-300 rounded-full flex items-center justify-center font-bold text-gray-800">
+										{job.company.charAt(0)}
+									</div>
+									<div>
+										<h2 className="text-2xl font-semibold text-gray-900">
+											{job.title}
+										</h2>
+										<p className="text-lg  text-gray-800">{job.company}</p>
+									</div>
+								</div>
+								{/* Job Type */}
+								<p className="mt-1 text-sm text-orange-500 font-medium">
+									💼 {job.jobType}
+								</p>
+
+								{/* Salary & Experience */}
+								<div className="flex flex-wrap gap-2 mt-3">
+									<span className="bg-orange-200 text-orange-700 text-xs px-3 py-1 rounded-full">
+										💰 {job.salaryRange} LPA
+									</span>
+									<span className="bg-blue-100 text-blue-900 text-xs px-3 py-1 rounded-full">
+										🧑‍💼 {job.experienceLevel} yrs exp
+									</span>
+								</div>
+								{/* Tech Stack */}
+								<div className="mt-4">
+									<p className="text-sm text-gray-700 mb-1 font-medium">
+										Tech Stack:
+									</p>
+									<div className="flex flex-wrap gap-2">
+										{(Array.isArray(job.techStack)
+											? job.techStack
+											: (job.techStack || "").split(",")
+										)
+											.map((s) => (typeof s === "string" ? s.trim() : s))
+											.filter(Boolean)
+											.map((tech, i) => (
+												<span
+													key={i}
+													className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg border">
+													{tech}
+												</span>
+											))}
+									</div>
+								</div>
+								<div className="block">
+									<h2 className="flex items-center justify-center text-lg mt-4 p-1 cursor-pointer bg-orange-500 text-gray-900 hover:bg-orange-400 rounded-lg">
+										Apply Now
+									</h2>
+								</div>
 							</div>
-						</div>
-					))
-				) : (
-					<p className=" text-orange-500 text-center text-lg">No Jobs Found</p>
-				)}
+						))
+					) : (
+						<p className=" text-orange-500 text-center text-lg">
+							No Jobs Found
+						</p>
+					)}
+				</div>
 			</div>
 		</div>
 	);

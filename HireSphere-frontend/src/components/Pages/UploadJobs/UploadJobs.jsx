@@ -34,8 +34,7 @@ const UploadJobs = () => {
 			!data.salaryRange ||
 			!data.jobType ||
 			!data.experienceLevel ||
-			!data.techStack ||
-			!data.description
+			!data.techStack 
 		) {
 			toast.error("Please fill all fields!");
 			return;
@@ -202,7 +201,7 @@ const UploadJobs = () => {
 							name="description"
 							value={data.description}
 							onChange={onChangeHandler}
-							required
+							
 							rows={5}
 							placeholder="Write job description here..."
 							className="w-full border border-orange-400 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
@@ -213,7 +212,7 @@ const UploadJobs = () => {
 						<button
 							type="submit"
 							disabled={loading}
-							className="mt-4 py-3 px-4 sm:mb-5 text-lg rounded-xl w-full bg-orange-400 hover:bg-orange-500 text-white font-semibold">
+							className="mt-4 py-3 px-4 sm:mb-5 text-lg rounded-xl w-full bg-orange-500 hover:bg-orange-400 text-white font-semibold">
 							{loading ? "Posting..." : "Post Job"}
 						</button>
 					</div>
