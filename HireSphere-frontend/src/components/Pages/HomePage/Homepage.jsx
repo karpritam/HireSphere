@@ -1,8 +1,10 @@
 import React from "react";
 import { assets } from "../../../assets/assets";
 import { IconSearch } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
+	const navigate=useNavigate();
 	return (
 		<div className="flex flex-col-reverse  md:flex-row items-center justify-center px-6 sm:px-10 md:px-16 bg-white text-gray-900 overflow-visible max-w-full">
 			{/* Left Section */}
@@ -62,7 +64,7 @@ const Homepage = () => {
 						/>
 					</div>
 					{/*todo-> when click seach icon go to the find job section */}
-					<button className="flex mt-0 sm:mt-4 items-center justify-center w-full h-14 sm:h-12 p-3 bg-orange-400 rounded-xl hover:bg-orange-500 active:scale-95 transition-transform cursor-pointer shadow-md">
+					<button onClick={()=>navigate(`/findJobs`)} className="flex mt-0 sm:mt-4 items-center justify-center w-full h-14 sm:h-12 p-3 bg-orange-400 rounded-xl hover:bg-orange-500 active:scale-95 transition-transform cursor-pointer shadow-md">
 						<p className="block sm:hidden ">Search Job</p>
 						<IconSearch className="hidden sm:block w-8 md:h-8 text-gray-900 " />
 					</button>
@@ -70,7 +72,7 @@ const Homepage = () => {
 			</div>
 
 			{/* Right Section */}
-			<div className="relative flex items-center justify-center w-full md:w-[55%] mt-10 md:mb-0 overflow-visible">
+			<div className="relative flex items-center  justify-center  w-full md:w-[55%] mt-10 md:mb-0 overflow-visible">
 				<div className="relative w-[22rem] sm:w-[26rem] md:w-[34rem] lg:w-[40rem]">
 					<img
 						src={assets.avatarImg2}

@@ -16,11 +16,11 @@ export const getAllJobs = async () => {
 };
 
 //GetMapping by Id
-export const getJobById = async (jobId) => {
-	return await axios.get(`http://localhost:8080/api/v1.0/jobs/${jobId}`);
+export const getJobById = async (jobId,jobData) => {
+	return await axios.get(`http://localhost:8080/api/v1.0/jobs/${jobId}`,jobData);
 };
 
 //UpdateMapping
-export const updateJob = async (jobId) => {
-	return await axios.put(`http://localhost:8080/api/v1.0/jobs/${jobId}`);
+export const updateJob = async (jobId,jobData) => {
+	return await axios.put(`http://localhost:8080/api/v1.0/jobs/${jobId}`,jobData);
 };

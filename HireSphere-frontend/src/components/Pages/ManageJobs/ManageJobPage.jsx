@@ -5,10 +5,6 @@ import ManageJobs from "./ManageJobs";
 const ManageJobPage = () => {
 	const [jobs, setJobs] = useState([]);
 
-	useEffect(() => {
-		loadJobs();
-	}, []);
-
 	const loadJobs = async () => {
 		try {
 			const response = await getAllJobs();
@@ -18,9 +14,13 @@ const ManageJobPage = () => {
 		}
 	};
 
+	useEffect(() => {
+		loadJobs();
+	}, []);
+
 	return (
 		<div>
-			<ManageJobs jobs={jobs} />
+			<ManageJobs jobs={jobs} refreshJobs={loadJobs}/>
 		</div>
 	);
 };
