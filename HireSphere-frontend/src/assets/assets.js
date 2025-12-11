@@ -11,6 +11,7 @@ import avatarImg2 from "./avatarImg2.png";
 import uploadAvatar from "./uploadAvatar.png";
 import manageJobIcon from "./management.png";
 import leftArrow from "./left-arrow.png";
+import upload from "./upload.png";
 
 export const assets = {
 	jobLogo,
@@ -26,4 +27,5 @@ export const assets = {
 	uploadAvatar,
 	manageJobIcon,
 	leftArrow,
+	upload,
 };

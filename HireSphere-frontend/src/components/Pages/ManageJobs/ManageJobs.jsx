@@ -21,7 +21,7 @@ const ManageJobs = ({ jobs, refreshJobs }) => {
 	};
 
 	return (
-		<div className="w-full px-6 py-6">
+		<div className="w-full px-6 py-6 min-h-screen">
 			<div className="flex items-center justify-center gap-4">
 				<img
 					src={assets.manageJobIcon}
@@ -89,7 +89,7 @@ const ManageJobs = ({ jobs, refreshJobs }) => {
 
 								<div className="flex justify-evenly gap-2 mt-5">
 									<button
-										onClick={() => navigate(`/updateJob/${job.id}`)} // 👈 IMPORTANT
+										onClick={() => navigate(`/updateJob/${job.id}`)} 
 										className="bg-blue-500 w-full text-white px-4 py-2 rounded-lg hover:bg-blue-600">
 										Update
 									</button>

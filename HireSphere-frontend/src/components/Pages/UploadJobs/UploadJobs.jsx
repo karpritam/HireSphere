@@ -34,7 +34,7 @@ const UploadJobs = () => {
 			!data.salaryRange ||
 			!data.jobType ||
 			!data.experienceLevel ||
-			!data.techStack 
+			!data.techStack
 		) {
 			toast.error("Please fill all fields!");
 			return;
@@ -67,9 +67,9 @@ const UploadJobs = () => {
 	};
 
 	return (
-		<div className="flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-16 bg-white text-gray-900 max-w-full overflow-hidden">
+		<div className="w-full px-6 py-6  text-gray-900 max-w-4xl mx-auto min-h-screen ">
 			{/* Left Form */}
-			<div className="flex flex-col w-full md:w-[45%] gap-6">
+			<div className="flex flex-col w-full gap-6">
 				<h1 className="text-center font-bold text-4xl">
 					Upload <span className="text-orange-500">Jobs</span>
 				</h1>
@@ -201,33 +201,20 @@ const UploadJobs = () => {
 							name="description"
 							value={data.description}
 							onChange={onChangeHandler}
-							
 							rows={5}
 							placeholder="Write job description here..."
 							className="w-full border border-orange-400 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
 					</div>
 
-					{/* Submit Button INSIDE form */}
 					<div>
 						<button
 							type="submit"
 							disabled={loading}
-							className="mt-4 py-3 px-4 sm:mb-5 text-lg rounded-xl w-full bg-orange-500 hover:bg-orange-400 text-white font-semibold">
+							className="mt-4  sm:mb-5 text-lg  w-full bg-orange-500 hover:brightness-95 text-white px-6 py-2 rounded-md font-semibold">
 							{loading ? "Posting..." : "Post Job"}
 						</button>
 					</div>
 				</form>
-			</div>
-
-			{/* Right Avatar */}
-			<div className="flex items-center justify-center w-full md:w-[55%] sm:mt-10 md:mt-20  overflow-hidden">
-				<div className="w-[26rem] md:block sm:hidden md:w-[36rem] lg:w-[38rem]">
-					<img
-						src={assets.uploadAvatar}
-						alt="Upload Job Avatar"
-						className="w-full h-full  object-contain"
-					/>
-				</div>
 			</div>
 		</div>
 	);

@@ -10,6 +10,9 @@ import { Toaster } from "react-hot-toast";
 import FindJobsPage from "./components/Pages/FindJobs/FindJobPage";
 import ManageJobPage from "./components/Pages/ManageJobs/ManageJobPage";
 import UpdateJob from "./components/Pages/UpdateJob/UpdateJob";
+import Apply from "./components/Pages/ApplyJob/ApplyJob";
+import ApplyJob from "./components/Pages/ApplyJob/ApplyJob";
+import Footer from "./components/Pages/Footer/Footer";
 
 const App = () => {
 	const location = useLocation();
@@ -28,8 +31,10 @@ const App = () => {
 						<Route path="/manageJobs" element={<ManageJobPage />} />
 						<Route path="/applicants" element={<ViewApplications />} />
 						<Route path="/updateJob/:id" element={<UpdateJob />} />
+						<Route path="/applyJob/:id" element={<ApplyJob />} />
 					</Routes>
 				</main>
+				<Footer/>
 			</div>
 		</div>
 	);

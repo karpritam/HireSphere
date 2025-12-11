@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { IconSearch } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 const FindJobs = ({ jobs = [] }) => {
+	const navigate=useNavigate();
 	const [filters, setFilters] = useState({
 		type: "",
 		title: "",
@@ -31,7 +33,7 @@ const FindJobs = ({ jobs = [] }) => {
 		: [];
 
 	return (
-		<div className="w-full px-6 py-6">
+		<div className="w-full px-6 py-6 min-h-screen">
 			<div className="flex items-center justify-center">
 				<div className="flex flex-col sm:flex-row items-center gap-3 bg-white shadow-lg p-4 rounded-xl border w-full max-w-5xl">
 					{/* Job Type */}
@@ -145,7 +147,7 @@ const FindJobs = ({ jobs = [] }) => {
 									</div>
 								</div>
 								<div className="block">
-									<h2 className="flex items-center justify-center text-lg mt-4 p-1 cursor-pointer bg-orange-500 text-gray-900 hover:bg-orange-400 rounded-lg">
+									<h2 onClick={()=>navigate(`/applyJob/${job.id}`)} className="flex items-center justify-center text-lg mt-4 p-1 cursor-pointer bg-orange-500 hover:brightness-95 text-white px-6 py-2 rounded-lg font-semibold">
 										Apply Now
 									</h2>
 								</div>

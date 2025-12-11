@@ -60,8 +60,8 @@ const UpdateJob = () => {
 	};
 
 	return (
-		<div className="relative flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-10">
-			<div className="absolute top-10 left-20 flex items-center group cursor-pointer">
+		<div className="relative flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-10 ">
+			<div className="absolute top-10 left-10  flex items-center group cursor-pointer">
 				<img
 					onClick={() => navigate("/manageJobs")}
 					src={assets.leftArrow}
