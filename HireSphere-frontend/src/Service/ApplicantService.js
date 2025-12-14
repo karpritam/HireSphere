@@ -12,13 +12,12 @@ export const applyJob = async (jobId, formData) => {
 	);
 };
 
-export const getJobApllication = async () => {
+export const getJobApplication = async () => {
 	return await axios.get("http://localhost:8080/api/v1.0/applicants");
 };
 
-export const deleteApplication = async (jobId) => {
+export const deleteApplication = async (applicationId) => {
 	return await axios.delete(
-		`http://localhost:8080/api/v1.0/applicants/apply/${jobId}`,
-		jobId
+		`http://localhost:8080/api/v1.0/applicants/${applicationId}`
 	);
 };
