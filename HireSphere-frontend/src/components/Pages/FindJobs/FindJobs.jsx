@@ -3,7 +3,7 @@ import { IconSearch } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
 const FindJobs = ({ jobs = [] }) => {
-	const navigate=useNavigate();
+	const navigate = useNavigate();
 	const [filters, setFilters] = useState({
 		type: "",
 		title: "",
@@ -147,7 +147,12 @@ const FindJobs = ({ jobs = [] }) => {
 									</div>
 								</div>
 								<div className="block">
-									<h2 onClick={()=>navigate(`/applyJob/${job.id}`)} className="flex items-center justify-center text-lg mt-4 p-1 cursor-pointer bg-orange-500 hover:brightness-95 text-white px-6 py-2 rounded-lg font-semibold">
+									<h2
+										onClick={() => {
+											localStorage.setItem("jobRole", job.title);
+											navigate(`/applyJob/${job.id}`);
+										}}
+										className="flex items-center justify-center text-lg mt-4 p-1 cursor-pointer bg-orange-500 hover:brightness-95 text-white px-6 py-2 rounded-lg font-semibold">
 										Apply Now
 									</h2>
 								</div>
