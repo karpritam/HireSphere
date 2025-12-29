@@ -50,7 +50,7 @@ public class ApplicantServiceImpl implements ApplicantService {
                 .name(request.getName())
                 .email(request.getEmail())
                 .mobile(request.getPhone())
-                .resumeUrl("http://localhost:8080/uploads/resumes/" + fileName)
+                .resumeUrl("/uploads/resumes/" + fileName)
                 .job(job)
                 .build();
 

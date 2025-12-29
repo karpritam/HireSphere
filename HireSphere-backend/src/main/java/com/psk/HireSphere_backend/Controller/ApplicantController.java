@@ -48,4 +48,6 @@ public class ApplicantController {
     public String deleteApplicant(@PathVariable Long id){
         return applicantService.deleteApplicant(id);
     }
+
+    
 }
