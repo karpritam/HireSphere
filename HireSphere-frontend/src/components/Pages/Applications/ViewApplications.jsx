@@ -68,17 +68,19 @@ const ViewApplications = () => {
 							<div>
 								<h3 className="font-semibold text-lg">{app.name}</h3>
 								<p className="text-sm text-gray-600">{app.email}</p>
-								<p className="text-sm text-gray-600">{app.phone}</p>
+								<p className="text-sm text-gray-600">{app.mobile}</p>
 							</div>
 						</div>
 
 						{/* Bottom */}
 						<div className="flex items-center  mt-4">
+							
 							<img src={assets.upload} className="w-8 h-8" />
 							<a
+							
 								href={app.resumeUrl}
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 								className="text-orange-500 text-sm font-medium hover:underline">
 								View Resume
 							</a>
